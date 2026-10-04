@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d0f13">
+  <meta name="description" content="Discover remarkable games and films from trusted creators. A thoughtful catalog for your next great story.">
+  <meta property="og:title" content="Sora — stories worth your time">
+  <meta property="og:description" content="Discover remarkable games and films from trusted creators.">
+  <meta property="og:type" content="website">
+  <title>Sora — stories worth your time</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebSite","name":"Sora","description":"Discover games and films from trusted creators"}
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Sora home">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span>sora<span class="brand-period">.</span></span>
+    </a>
+    <nav class="primary-nav" aria-label="Main navigation">
+      <button class="nav-link active" data-view="discover" data-i18n="navDiscover">Discover</button>
+      <button class="nav-link" data-filter="game" data-i18n="navGames">Games</button>
+      <button class="nav-link" data-filter="movie" data-i18n="navFilms">Films</button>
+      <button class="nav-link" data-view="history" data-i18n="navLibrary">My library</button>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-button theme-toggle" aria-label="Toggle color theme" title="Toggle theme"><span class="theme-icon">☼</span></button>
+      <button class="language-toggle" aria-label="Switch language">العربية</button>
+      <button class="icon-button cart-toggle" aria-label="Open download list" title="Download list">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14l-1 13H6L5 7Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg>
+        <span class="cart-count" hidden>0</span>
+      </button>
+      <button class="account-button" data-action="account"><span class="avatar">S</span><span class="account-label" data-i18n="signIn">Sign in</span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-image"></div>
+      <div class="hero-content">
+        <div class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="heroEyebrow">GOOD STORIES. GOOD PEOPLE.</span></div>
+        <h1 id="hero-title" data-i18n="heroTitle">Find your<br>next <em>favorite.</em></h1>
+        <p data-i18n="heroText">A handpicked world of games and films, made by people who care.</p>
+        <button class="button button-light" data-action="explore"><span data-i18n="exploreCollection">Explore the collection</span><span aria-hidden="true">↗</span></button>
+        <div class="hero-footnote"><span class="status-dot"></span><span data-i18n="heroFootnote">Independent creators. Official sources. Always.</span></div>
+      </div>
+      <div class="hero-caption"><span>01 / 06</span><span class="caption-rule"></span><span data-i18n="heroCaption">PICKED FOR THE CURIOUS</span></div>
+    </section>
+
+    <section class="content-section" id="discover">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow muted"><span class="eyebrow-line"></span><span data-i18n="curatedForYou">A LITTLE INSPIRATION</span></div>
+          <h2 data-i18n="collectionTitle">Worth a closer look<span class="heading-dot">.</span></h2>
+        </div>
+        <div class="heading-note" data-i18n="collectionNote">Good things, gathered in one place.</div>
+      </div>
+
+      <div class="toolbar">
+        <label class="search-box">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4 4"/></svg>
+          <input type="search" id="search" placeholder="Search titles, genres, creators…" data-i18n-placeholder="searchPlaceholder" autocomplete="off">
+          <kbd>⌘ K</kbd>
+        </label>
+        <div class="filter-row">
+          <div class="segmented" role="group" aria-label="Catalog type">
+            <button class="segment active" data-filter="all" data-i18n="allStories">Everything</button>
+            <button class="segment" data-filter="game" data-i18n="games">Games</button>
+            <button class="segment" data-filter="movie" data-i18n="films">Films</button>
+          </div>
+          <label class="sort-select">
+            <span data-i18n="sortBy">Sort</span>
+            <select id="sort" aria-label="Sort items">
+              <option value="featured" data-i18n="featured">Featured</option>
+              <option value="rating" data-i18n="topRated">Top rated</option>
+              <option value="year" data-i18n="newest">Newest</option>
+            </select>
+            <span class="select-chevron">⌄</span>
+          </label>
+        </div>
+      </div>
+      <div class="active-filters" id="genre-filters" aria-label="Filter by genre"></div>
+      <div class="results-meta"><span id="result-count">06 stories</span><span class="source-note" data-i18n="sourceNote">Every link leads to its creator or rights holder.</span></div>
+      <div class="catalog-grid" id="catalog-grid" aria-live="polite"></div>
+      <div class="empty-state" id="empty-state" hidden>
+        <span class="empty-symbol">⌕</span><h3 data-i18n="nothingFound">No stories found</h3><p data-i18n="tryAnother">Try a different search or filter.</p>
+        <button class="text-button" data-action="clearFilters" data-i18n="clearFilters">Clear filters →</button>
+      </div>
+    </section>
+
+    <section class="editorial-banner">
+      <div class="editorial-ornament" aria-hidden="true">✳</div>
+      <div class="editorial-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="manifestoEyebrow">THE SORA PROMISE</span></div>
+        <h2 data-i18n="manifestoTitle">A good story should<br>have a <em>good source.</em></h2>
+        <p data-i18n="manifestoText">We connect you directly to creators and rights holders. No mystery links, no guesswork—just more room for the stories you love.</p>
+      </div>
+      <div class="editorial-stamp"><span>CREATOR<br>FIRST</span><span class="stamp-star">✳</span><span>ALWAYS</span></div>
+    </section>
+
+    <section class="library-section" id="library" hidden>
+      <div class="section-heading">
+        <div><div class="eyebrow muted"><span class="eyebrow-line"></span><span data-i18n="yourCollection">YOUR COLLECTION</span></div><h2 data-i18n="libraryTitle">Your library<span class="heading-dot">.</span></h2></div>
+      </div>
+      <div id="history-list" class="history-list"></div>
+      <div class="empty-state history-empty" id="history-empty"><span class="empty-symbol">↗</span><h3 data-i18n="historyEmpty">Your story starts here</h3><p data-i18n="historyEmptyText">Items you visit will appear in your collection.</p></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="brand footer-brand" href="/"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>sora<span class="brand-period">.</span></span></a>
+    <span class="footer-center" data-i18n="footerText">A home for stories worth sharing.</span>
+    <span class="footer-right">© 2025 Sora <span class="footer-separator">·</span> <span data-i18n="footerRights">Respect creators. Always.</span></span>
+  </footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <dialog id="detail-dialog" class="dialog detail-dialog">
+    <button class="dialog-close" data-close aria-label="Close">×</button>
+    <div id="detail-content"></div>
+  </dialog>
+  <dialog id="auth-dialog" class="dialog auth-dialog">
+    <button class="dialog-close" data-close aria-label="Close">×</button>
+    <div class="auth-intro"><span class="brand-mark"><i></i><i></i><i></i><i></i></span><div class="eyebrow muted"><span data-i18n="welcomeBack">WELCOME TO SORA</span></div><h2 data-i18n="authTitle">Stories are better<br>when they’re yours.</h2><p data-i18n="authText">Sign in to save your favorites and keep your collection close.</p></div>
+    <div class="auth-tabs"><button class="auth-tab active" data-auth-mode="login" data-i18n="signIn">Sign in</button><button class="auth-tab" data-auth-mode="register" data-i18n="createAccount">Create account</button></div>
+    <form id="auth-form">
+      <label class="form-field"><span data-i18n="yourName">Your name</span><input name="name" autocomplete="name" minlength="2" maxlength="100" hidden></label>
+      <label class="form-field"><span data-i18n="emailAddress">Email address</span><input name="email" type="email" autocomplete="email" required maxlength="254"></label>
+      <label class="form-field"><span data-i18n="password">Password</span><input name="password" type="password" autocomplete="current-password" required minlength="10" maxlength="128"></label>
+      <button class="button button-dark auth-submit" type="submit" data-i18n="signIn">Sign in</button>
+      <p class="form-message" id="auth-message"></p>
+    </form>
+  </dialog>
+  <dialog id="profile-dialog" class="dialog auth-dialog profile-dialog">
+    <button class="dialog-close" data-close aria-label="Close">×</button>
+    <div class="auth-intro"><span class="brand-mark"><i></i><i></i><i></i><i></i></span><div class="eyebrow muted"><span data-i18n="yourAccount">YOUR ACCOUNT</span></div><h2 data-i18n="profileTitle">Make yourself at home.</h2></div>
+    <form id="profile-form">
+      <label class="form-field"><span data-i18n="yourName">Your name</span><input name="name" autocomplete="name" minlength="2" maxlength="100" required></label>
+      <label class="form-field"><span data-i18n="languagePreference">Language preference</span><select name="preferredLanguage"><option value="en">English</option><option value="ar">العربية</option></select></label>
+      <button class="button button-dark auth-submit" type="submit" data-i18n="saveChanges">Save changes</button>
+      <button class="profile-admin" id="profile-admin" type="button" data-i18n="adminDashboard" hidden>Admin dashboard</button>
+      <button class="profile-logout" id="profile-logout" type="button" data-i18n="signOut">Sign out</button>
+      <p class="form-message" id="profile-message"></p>
+    </form>
+  </dialog>
+  <dialog id="cart-dialog" class="dialog side-dialog">
+    <button class="dialog-close" data-close aria-label="Close">×</button>
+    <div class="eyebrow muted"><span class="eyebrow-line"></span><span data-i18n="yourList">YOUR LIST</span></div><h2 data-i18n="savedItems">Saved stories<span class="heading-dot">.</span></h2>
+    <div id="cart-list" class="side-list"></div><p class="side-note" data-i18n="listNote">Your list is saved on this device. Downloads always open at the official source.</p>
+  </dialog>
+  <dialog id="admin-dialog" class="dialog admin-dialog">
+    <button class="dialog-close" data-close aria-label="Close">×</button>
+    <div class="eyebrow muted"><span class="eyebrow-line"></span><span data-i18n="adminDashboard">ADMIN DASHBOARD</span></div><h2 data-i18n="adminTitle">A little overview<span class="heading-dot">.</span></h2>
+    <div class="stats-grid" id="admin-stats"></div>
+  </dialog>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
